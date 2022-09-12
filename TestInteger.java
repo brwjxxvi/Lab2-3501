@@ -31,18 +31,19 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public static void main (String[] args) {
 
-        TestInteger[] TI = new ()[100];
+        TestInteger[] TI = new TestInteger[100];
 
-        for(int i = 0; i<arr.length; i++){
-            TestInteger[i].value = (int)(Math.random()*100);
+        for(int i = 0; i<TI.length; i++){
+            TI[i]= new TestInteger((int)(Math.random()*100));
+            //TestInteger[i].value = (int)(Math.random()*100);
         }
         //Integer b = 6;
         //String as = Arrays.toString(a.arr);
         //String bs = Arrays.toString(b.arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(TI));
 
-        QS.quickSort(arr);
-        System.out.println(Arrays.toString(arr));
+        QS.quickSort(TI);
+        System.out.println(Arrays.toString(TI));
     }
     
 }
