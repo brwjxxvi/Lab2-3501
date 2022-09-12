@@ -7,8 +7,6 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public int[] arr;
 
-    public TestInteger(int i) {
-    }
 
     public int compareTo (TestInteger other) {
         counter++;
