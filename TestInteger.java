@@ -24,36 +24,30 @@ public class TestInteger implements Comparable<TestInteger> {
 
 
     public static int partition (int[] arr, int lo, int hi) {
-        int pivot = arr[hi];
-        int i = lo - 1;
-
-        for (int j=0; lo < j && j < hi-1; j++) {
-            
-            if (arr[j] <= pivot) {
-                i = i + 1;
-                arr[i] = arr[j];
-            }
-
+        int pivot = arr[lo];     
+        while (lo < hi){
+            while (lo < hi && arr[hi] >= pivot) --hi;
+            arr[lo]=arr[hi];             
+            while (lo < hi && arr[lo] <= pivot) ++lo;
+            arr[hi] = arr[lo];          
         }
-
-        i = i + 1;
-        arr[i] = arr[hi];
-        return i;
+        arr[lo] = pivot;
+        return lo;
     }
 
-    private static void quickSort (int[] arr, int lo, int hi) {
+    private static void qSort (int[] arr, int lo, int hi) {
         if (lo >= hi || lo < 0) {
             return;
         } 
 
         int pivot = partition(arr, lo, hi);
 
-        quickSort(arr, lo, pivot-1);
-        quickSort(arr, pivot+1, hi);
+        qSort(arr, lo, pivot-1);
+        qSort(arr, pivot+1, hi);
     }
 
-    public static void qSort(int[]arr){
-        quickSort(arr, 0, arr.length-1);
+    public static void quickSort(int[]arr){
+        qSort(arr, 0, arr.length-1);
     }
 
     public static void main (String[] args) {
