@@ -1,13 +1,13 @@
 public class QS {
     public static int partition (TestInteger[]TI, int lo, int hi) {
-        int pivot = TI[lo].value;     
+        TestInteger pivot = new TestInteger(TI[lo].value);     
         while (lo < hi){
-            while (lo < hi && TI[hi].value >= pivot) --hi;
+            while (lo < hi && TI[hi].compareTo(pivot)>=0) --hi;
             TI[lo].value=TI[hi].value;             
-            while (lo < hi && TI[lo].value <= pivot) ++lo;
+            while (lo < hi && TI[lo].compareTo(pivot)<=0) ++lo;
             TI[hi].value = TI[lo].value;          
         }
-        TI[lo].value = pivot;
+        TI[lo].value = pivot.value;
         return lo;
     }
 

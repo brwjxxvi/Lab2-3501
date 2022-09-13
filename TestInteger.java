@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import MS.java;
-import QS.java;
 
 public class TestInteger implements Comparable<TestInteger> {
 
@@ -45,6 +43,8 @@ public class TestInteger implements Comparable<TestInteger> {
         System.out.println(Arrays.toString(TI));
         QS.quickSort(TI);
         System.out.println(Arrays.toString(TI));
+        System.out.println(counter);
+        
     }
     
 }
