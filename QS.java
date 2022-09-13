@@ -1,28 +1,28 @@
 public class QS {
-    public static int partition (int[] arr, int lo, int hi) {
-        int pivot = arr[lo];     
+    public static int partition (TestInteger[]TI, int lo, int hi) {
+        int pivot = TI[lo].value;     
         while (lo < hi){
-            while (lo < hi && arr[hi] >= pivot) --hi;
-            arr[lo]=arr[hi];             
-            while (lo < hi && arr[lo] <= pivot) ++lo;
-            arr[hi] = arr[lo];          
+            while (lo < hi && TI[hi].value >= pivot) --hi;
+            TI[lo].value=TI[hi].value;             
+            while (lo < hi && TI[lo].value <= pivot) ++lo;
+            TI[hi].value = TI[lo].value;          
         }
-        arr[lo] = pivot;
+        TI[lo].value = pivot;
         return lo;
     }
 
-    private static void qSort (int[] arr, int lo, int hi) {
+    private static void qSort (TestInteger[]TI, int lo, int hi) {
         if (lo >= hi || lo < 0) {
             return;
         } 
 
-        int pivot = partition(arr, lo, hi);
+        int pivot = partition(TI, lo, hi);
 
-        qSort(arr, lo, pivot-1);
-        qSort(arr, pivot+1, hi);
+        qSort(TI, lo, pivot-1);
+        qSort(TI, pivot+1, hi);
     }
 
-    public static void quickSort(int[]arr){
-        qSort(arr, 0, arr.length-1);
+    public static void quickSort(TestInteger[]TI){
+        qSort(TI, 0, TI.length-1);
     }
 }
