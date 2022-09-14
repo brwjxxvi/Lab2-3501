@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Arrays.Sort;
 
 public class TestInteger implements Comparable<TestInteger> {
 
@@ -34,14 +35,15 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public static void main (String[] args) {
 
-        TestInteger[] TI = new TestInteger[10000];
+        TestInteger[] TI = new TestInteger[100];
 
         for(int i = 0; i<TI.length; i++){
             TI[i]= new TestInteger((int)(Math.random()*1000000));
         }
 
         System.out.println(Arrays.toString(TI));
-        QS.quickSort(TI);
+        //QS.quickSort(TI);
+        Arrays.sort(TI);
         System.out.println(Arrays.toString(TI));
         System.out.println(counter);
         
