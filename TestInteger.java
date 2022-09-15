@@ -13,6 +13,10 @@ public class TestInteger implements Comparable<TestInteger> {
         value = v;
     }
 
+    public void resetCounter(){
+        counter = 0;
+    }
+
     @Override
     public String toString() {
         return "" + this.value;

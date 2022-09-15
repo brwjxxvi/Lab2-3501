@@ -1,4 +1,4 @@
-public class QS {
+public class MedianQS {
     
     public static int partition (TestInteger[]TI, int lo, int hi) {
         TestInteger pivot = new TestInteger(TI[lo].value);     
