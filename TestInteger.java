@@ -40,12 +40,18 @@ public class TestInteger implements Comparable<TestInteger> {
         for(int i = 0; i<QTI.length; i++){
             QTI[i]= new TestInteger((int)(Math.random()*100));
         }
-        MTI = clone
+        for(int i = 0; i<MTI.length; i++){
+            MTI[i] = new TestInteger(QTI[i].value);
+        }
+        
+        System.out.println(Arrays.toString(QTI));
+        System.out.println(Arrays.toString(MTI));
+        QS.quickSort(QTI);
+        System.out.println(Arrays.toString(QTI));
+        System.out.println(counter);
 
-        System.out.println(Arrays.toString(QTI));
-        //QS.quickSort(TI);
-        Arrays.sort(QTI);
-        System.out.println(Arrays.toString(QTI));
+        Arrays.sort(MTI);
+        System.out.println(Arrays.toString(MTI));
         System.out.println(counter);
         
     }
