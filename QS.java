@@ -1,5 +1,5 @@
 public class QS {
-    
+
     public static int partition (TestInteger[]TI, int lo, int hi) {
         TestInteger pivot = new TestInteger(TI[lo].value);     
         while (lo < hi){

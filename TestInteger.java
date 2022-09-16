@@ -6,14 +6,11 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public int value;
 
-    TestInteger (){
-    }
-
     TestInteger (int v){
         value = v;
     }
 
-    public void resetCounter(){
+    public static void resetCounter(){
         counter = 0;
     }
 
@@ -50,15 +47,15 @@ public class TestInteger implements Comparable<TestInteger> {
         
         //System.out.println(Arrays.toString(QTI));
         //System.out.println(Arrays.toString(MTI));
-        QS.quickSort(QTI);
-        //System.out.println(Arrays.toString(QTI));
-        System.out.println("Quicksort: " + counter);
-        TestInteger.counter = 0;
+        RandomQS.quickSort(QTI);
+        System.out.println(Arrays.toString(QTI));
+        System.out.println("Quicksort comparisons: " + counter);
+        resetCounter();
 
         Arrays.sort(MTI);
         //System.out.println(Arrays.toString(MTI));
-        System.out.println("Timsort: " + counter);
-        
+        System.out.println("Timsort comparisons: " + counter);
+        resetCounter();
     }
     
 }
