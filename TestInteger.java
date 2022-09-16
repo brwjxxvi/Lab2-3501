@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TestInteger implements Comparable<TestInteger> {
 
@@ -58,6 +59,13 @@ public class TestInteger implements Comparable<TestInteger> {
         Arrays.sort(MTI);
         //System.out.println(Arrays.toString(MTI));
         System.out.println("Timsort: " + counter);
+
+        TestInteger[] IncreaseTI = new TestInteger[100]; 
+        for(int i = 0; i<IncreaseTI.length; i++){
+            IncreaseTI[i] = new TestInteger(ThreadLocalRandom.current().nextInt (1, 102));
+        }
+        System.out.println(Arrays.toString(IncreaseTI));
+            
         
     }
     
