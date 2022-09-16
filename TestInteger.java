@@ -64,7 +64,7 @@ public class TestInteger implements Comparable<TestInteger> {
         for(int i = 0; i<IncreaseTI.length; i++){
             IncreaseTI[i] = new TestInteger(ThreadLocalRandom.current().nextInt (1, 102));
         }
-        System.out.println(Arrays.toString(IncreaseTI));
+        //System.out.println(Arrays.toString(IncreaseTI));
             
         
     }
