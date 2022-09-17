@@ -29,11 +29,11 @@ public class RandomQS {
 
         int pivot = randomPartition(TI, lo, hi);
 
-        RqSort(TI, lo, pivot-1);
-        RqSort(TI, pivot+1, hi);
+        qSort(TI, lo, pivot-1);
+        qSort(TI, pivot+1, hi);
     }
 
     public static void quickSort(TestInteger[]TI){
-        RqSort(TI, 0, TI.length-1);
+        qSort(TI, 0, TI.length-1);
     }
 }
