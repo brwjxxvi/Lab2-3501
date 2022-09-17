@@ -1,5 +1,17 @@
 public class InsertionQS {
     
+    public static void insertionSort(TestInteger[]TI){
+        for(int j=2; j<TI.length; j++) {
+            TestInteger key = TI[j];
+            int i=j-1;
+            while (i>0 && TI[i].value>key.value) {
+                TI[i+1]=TI[i];
+                i=i-1;
+            }
+            TI[i+1]=key;
+        }
+    }
+   
     public static int partition (TestInteger[]TI, int lo, int hi) {
         TestInteger pivot = new TestInteger(TI[lo].value);     
         while (lo < hi){
