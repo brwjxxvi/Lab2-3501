@@ -41,3 +41,31 @@ public class MedianQS {
         qSort(TI, 0, TI.length-1);
     }
 }
+
+    // public int partition(int[] arr, int left, int right) {
+    //     int mid=left+(right-left)/2;
+    //     getThreeMid(arr,left,mid,right);
+    //     int base = arr[right];
+    //     int p = left - 1;
+    //     for (int i = left; i < right; i++) {
+    //         if (arr[i] <= base) {
+    //             p++;
+    //             exchange(arr,p,i);
+    //         }
+    //     }
+    //     p++;
+    //     exchange(arr,p,right);
+    //     return p;
+    // }
+
+    // public void getThreeMid(int[] arr,int left,int mid,int right){
+    //     if(arr[left]>arr[right])
+    //         exchange(arr,left,right);
+    //     if(arr[mid]<arr[right])
+    //     {
+    //         if(arr[mid]>arr[left])
+    //             exchange(arr,mid,right);
+    //         else
+    //             exchange(arr,left,right);
+    //     }
+    // }

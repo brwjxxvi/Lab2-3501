@@ -36,11 +36,11 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public static void main (String[] args) {
 
-        TestInteger[] QTI = new TestInteger[10000];
-        TestInteger[] MTI = new TestInteger[10000];
+        TestInteger[] QTI = new TestInteger[100];
+        TestInteger[] MTI = new TestInteger[100];
 
         for(int i = 0; i<QTI.length; i++){
-            QTI[i]= new TestInteger((int)(Math.random()*1000000));
+            QTI[i]= new TestInteger((int)(Math.random()*100));
         }
         for(int i = 0; i<MTI.length; i++){
             MTI[i] = new TestInteger(QTI[i].value);
@@ -48,13 +48,15 @@ public class TestInteger implements Comparable<TestInteger> {
         
         //System.out.println(Arrays.toString(QTI));
         //System.out.println(Arrays.toString(MTI));
-        RandomQS.quickSort(QTI);
+        //RandomQS.quickSort(QTI);
+        //MedianQS.quickSort(QTI);
+        InsertionQS.quickSort(QTI);
         System.out.println(Arrays.toString(QTI));
-        System.out.println("Quicksort comparisons: " + counter);
+        System.out.println("Quicksort: " + counter);
         resetCounter();
 
         Arrays.sort(MTI);
-        //System.out.println(Arrays.toString(MTI));
+        System.out.println(Arrays.toString(MTI));
         System.out.println("Timsort: " + counter);
 
         TestInteger[] IncreaseTI = new TestInteger[100]; 
