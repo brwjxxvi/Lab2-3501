@@ -36,33 +36,42 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public static void main (String[] args) {
 
+        //First Step: making array.
         TestInteger[] QTI = new TestInteger[100];
         TestInteger[] MTI = new TestInteger[100];
-
+        TestInteger[] IncreaseTI = new TestInteger[1000];
+        TestInteger[] DecreaseTI = new TestInteger[1000];  
         for(int i = 0; i<QTI.length; i++){
             QTI[i]= new TestInteger((int)(Math.random()*100));
         }
         for(int i = 0; i<MTI.length; i++){
             MTI[i] = new TestInteger(QTI[i].value);
         }
+        for(int i = 0; i<1000; i++){
+            IncreaseTI[i] = new TestInteger(i);
+        }
+        for(int i = 0; i<1000; i++){
+            DecreaseTI[i] = new TestInteger(i);
+        }
+
+
+        //Second Step: sorting and printing. 
         
         //System.out.println(Arrays.toString(QTI));
-        //System.out.println(Arrays.toString(MTI));
         //RandomQS.quickSort(QTI);
         //MedianQS.quickSort(QTI);
         InsertionQS.quickSort(QTI);
         System.out.println(Arrays.toString(QTI));
-        System.out.println("Quicksort: " + counter);
+        // System.out.println("Quicksort: " + counter);
+        // System.out.println("RandomQuickSort: " + counter);
+        // System.out.println("MedianQuickSort: " + counter);
+        System.out.println("InsertionQuicksort: " + counter);
         resetCounter();
 
         Arrays.sort(MTI);
         System.out.println(Arrays.toString(MTI));
         System.out.println("Timsort: " + counter);
 
-        TestInteger[] IncreaseTI = new TestInteger[100]; 
-        for(int i = 0; i<IncreaseTI.length; i++){
-            IncreaseTI[i] = new TestInteger(ThreadLocalRandom.current().nextInt (1, 102));
-        }
         //System.out.println(Arrays.toString(IncreaseTI));
             
         
