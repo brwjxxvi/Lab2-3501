@@ -38,7 +38,7 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public static void main (String[] args) {
 
-        //First Step: making array.
+        //First Step: generate array.
         TestInteger[] QTI = new TestInteger[100];
         TestInteger[] MTI = new TestInteger[100];
         TestInteger[] IncreaseTI = new TestInteger[1000];

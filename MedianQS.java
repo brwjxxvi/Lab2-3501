@@ -8,12 +8,11 @@ public class MedianQS {
         TestInteger sub2 = new TestInteger(TI[rand.nextInt(hi-lo) + lo].value);
         TestInteger sub3 = new TestInteger(TI[rand.nextInt(hi-lo) + lo].value);
         TestInteger median = new TestInteger();    
-        if (sub1.compareTo(sub2) >= 0 && sub1.compareTo(sub3) <= 0) {
+        if ((sub1.compareTo(sub2) >= 0 && sub1.compareTo(sub3) <= 0) || (sub1.compareTo(sub3) >= 0 && sub1.compareTo(sub2) <= 0)) {
             median = sub1;
-        }
-        if (sub2.compareTo(sub1) >= 0 && sub2.compareTo(sub3) <= 0) {
+        } else if ((sub2.compareTo(sub1) >= 0 && sub2.compareTo(sub3) <= 0) || (sub2.compareTo(sub3) >= 0 && sub2.compareTo(sub1) <= 0)) {
             median = sub2;
-        } else if(sub3.compareTo(sub1) >= 0 && sub3.compareTo(sub2) <= 0){
+        } else if((sub3.compareTo(sub1) >= 0 && sub3.compareTo(sub2) <= 0) || (sub3.compareTo(sub2) >= 0 && sub3.compareTo(sub1) <= 0)){
                 median = sub3;
         }
 
