@@ -7,6 +7,8 @@ public class TestInteger implements Comparable<TestInteger> {
 
     public int value;
 
+    TestInteger (){}
+
     TestInteger (int v){
         value = v;
     }
@@ -48,28 +50,30 @@ public class TestInteger implements Comparable<TestInteger> {
             MTI[i] = new TestInteger(QTI[i].value);
         }
         for(int i = 0; i<1000; i++){
-            IncreaseTI[i] = new TestInteger(i);
+            IncreaseTI[i] = new TestInteger(i+1);
         }
         for(int i = 0; i<1000; i++){
-            DecreaseTI[i] = new TestInteger(i);
+            DecreaseTI[i] = new TestInteger(1000-i);
         }
 
 
         //Second Step: sorting and printing. 
-        
-        //System.out.println(Arrays.toString(QTI));
-        //RandomQS.quickSort(QTI);
-        //MedianQS.quickSort(QTI);
-        InsertionQS.quickSort(QTI);
+            //Object 1
         System.out.println(Arrays.toString(QTI));
-        // System.out.println("Quicksort: " + counter);
-        // System.out.println("RandomQuickSort: " + counter);
-        // System.out.println("MedianQuickSort: " + counter);
-        System.out.println("InsertionQuicksort: " + counter);
+        //QS.quickSort(QTI);
+        //RandomQS.quickSort(QTI);
+        MedianQS.quickSort(QTI);
+        //InsertionQS.quickSort(QTI);
+        System.out.println(Arrays.toString(QTI));
+        //System.out.println("Quicksort: " + counter);
+        //System.out.println("RandomQuickSort: " + counter);
+        System.out.println("MedianQuickSort: " + counter);
+        //System.out.println("InsertionQuicksort: " + counter);
         resetCounter();
 
+            //Object 2
         Arrays.sort(MTI);
-        System.out.println(Arrays.toString(MTI));
+        //System.out.println(Arrays.toString(MTI));
         System.out.println("Timsort: " + counter);
 
         //System.out.println(Arrays.toString(IncreaseTI));
