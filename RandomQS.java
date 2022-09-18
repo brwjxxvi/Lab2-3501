@@ -3,7 +3,9 @@ import java.util.Random;
 public class RandomQS {
 
     public static int partition (TestInteger[]TI, int lo, int hi) {
-        TestInteger pivot = new TestInteger(TI[lo].value);     
+        randomPartition(TI, lo, hi);
+        TestInteger pivot = TI[hi];
+
         while (lo < hi){
             while (lo < hi && TI[hi].compareTo(pivot)>=0) --hi;
             TI[lo].value=TI[hi].value;             
@@ -14,12 +16,14 @@ public class RandomQS {
         return lo;
     }
     
-    public static int randomPartition (TestInteger[] TI, int lo, int hi) {
+    public static void randomPartition (TestInteger[] TI, int lo, int hi) {
         Random rand = new Random();
-        int pivot = (rand.nextInt(hi-lo) + lo);
-        TI[pivot]=TI[hi];
+        int pivot =(rand.nextInt(hi-lo) + lo);
+        TestInteger temp1=TI[pivot];  
+        TI[pivot]=TI[hi]; 
+        TI[hi]=temp1;
         
-        return partition(TI, lo, hi);
+        //return partition(TI, lo, hi);
     }
 
     private static void qSort (TestInteger[]TI, int lo, int hi) {
@@ -27,8 +31,7 @@ public class RandomQS {
             return;
         } 
 
-        int pivot = randomPartition(TI, lo, hi);
-
+        int pivot = partition(TI, lo, hi);
         qSort(TI, lo, pivot-1);
         qSort(TI, pivot+1, hi);
     }
