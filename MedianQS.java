@@ -4,17 +4,18 @@ public class MedianQS {
     
     public static int partition (TestInteger[]TI, int lo, int hi) {
         Random rand = new Random();
-        TestInteger sub1 = new TestInteger(rand.nextInt(hi-lo) + lo);
-        TestInteger sub2 = new TestInteger(rand.nextInt(hi-lo) + lo);
-        TestInteger sub3 = new TestInteger(rand.nextInt(hi-lo) + lo);
-        TestInteger median = new TestInteger(TI[lo].value);    
-        if (sub1.compareTo(sub2) == 1 && sub1.compareTo(sub3) == -1 || sub1.compareTo(sub2) == 1 && sub1.compareTo(sub3) == -1 ) {
+        TestInteger sub1 = new TestInteger(TI[rand.nextInt(hi-lo) + lo].value);
+        TestInteger sub2 = new TestInteger(TI[rand.nextInt(hi-lo) + lo].value);
+        TestInteger sub3 = new TestInteger(TI[rand.nextInt(hi-lo) + lo].value);
+        TestInteger median = new TestInteger();    
+        if ((sub1.compareTo(sub2) >= 0 && sub1.compareTo(sub3) <= 0) || (sub1.compareTo(sub3) >= 0 && sub1.compareTo(sub2) <= 0)) {
             median = sub1;
-        }
-        if (sub2.compareTo(sub1) == 1 && sub2.compareTo(sub3) == -1 || sub2.compareTo(sub3) == 1 && sub2.compareTo(sub1) == -1 ) {
+        } else if ((sub2.compareTo(sub1) >= 0 && sub2.compareTo(sub3) <= 0) || (sub2.compareTo(sub3) >= 0 && sub2.compareTo(sub1) <= 0)) {
             median = sub2;
-        } else
-        median = sub3;
+        } else if((sub3.compareTo(sub1) >= 0 && sub3.compareTo(sub2) <= 0) || (sub3.compareTo(sub2) >= 0 && sub3.compareTo(sub1) <= 0)){
+                median = sub3;
+        }
+
 
         while (lo < hi){
             while (lo < hi && TI[hi].compareTo(median)>=0) --hi;

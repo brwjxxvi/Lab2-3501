@@ -18,7 +18,6 @@ public class QS {
         } 
 
         int pivot = partition(TI, lo, hi);
-
         qSort(TI, lo, pivot-1);
         qSort(TI, pivot+1, hi);
     }

@@ -1,17 +1,5 @@
 public class InsertionQS {
-    
-    public static void insertionSort(TestInteger[]TI){
-        for(int j=2; j<TI.length; j++) {
-            TestInteger key = TI[j];
-            int i=j-1;
-            while (i>0 && TI[i].value>key.value) {
-                TI[i+1]=TI[i];
-                i=i-1;
-            }
-            TI[i+1]=key;
-        }
-    }
-   
+
     public static int partition (TestInteger[]TI, int lo, int hi) {
         TestInteger pivot = new TestInteger(TI[lo].value);     
         while (lo < hi){
@@ -24,18 +12,33 @@ public class InsertionQS {
         return lo;
     }
 
-    private static void qSort (TestInteger[]TI, int lo, int hi) {
-        if (lo >= hi || lo < 0) {
-            return;
-        } 
-
-        int pivot = partition(TI, lo, hi);
-
-        qSort(TI, lo, pivot-1);
-        qSort(TI, pivot+1, hi);
+    public static void qSort(TestInteger[]TI, int lo, int hi) {
+        if (hi - lo + 1 > 20) {
+            int pivot = partition(TI, lo, hi);
+            qSort(TI, lo, pivot - 1);
+            qSort(TI, pivot + 1, hi);
+        }else{
+            insertSort(TI, lo, hi);
+        }
     }
 
     public static void quickSort(TestInteger[]TI){
         qSort(TI, 0, TI.length-1);
+    }
+    
+
+
+    public static void insertSort(TestInteger[]TI, int lo, int hi) {
+        for (int i = lo; i <= hi; i++) {
+            TestInteger pivot = new TestInteger(TI[i].value);
+            int j = i - 1;
+            for (; j >= lo; j--) {
+                if (TI[j].compareTo(pivot)>=0) {
+                    TI[j+1].value=TI[j].value;
+                } else
+                    break;
+            }
+            TI[j+1].value=pivot.value;
+        }
     }
 }
